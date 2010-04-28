@@ -23,7 +23,6 @@ module Tinder
     #   c = Tinder::Campfire.new("mysubdomain", :ssl => true)
     def initialize(subdomain, options = {})
       @connection = Connection.new(subdomain, options)
-      @connection.basic_auth
     end
 
     # Get an array of all the available rooms
