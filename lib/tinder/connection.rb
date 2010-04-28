@@ -39,7 +39,9 @@ module Tinder
         http_proxy proxy_uri.host, proxy_uri.port
       end
       base_uri @uri.to_s
-      basic_auth token, 'X'
+      puts options[:token]
+      puts token
+      puts basic_auth token, 'X'
     end
     
     module HTTPartyExtensions

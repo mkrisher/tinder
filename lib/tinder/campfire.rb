@@ -23,6 +23,7 @@ module Tinder
     #   c = Tinder::Campfire.new("mysubdomain", :ssl => true)
     def initialize(subdomain, options = {})
       @connection = Connection.new(subdomain, options)
+      @connection.basic_auth
     end
 
     # Get an array of all the available rooms
@@ -36,6 +37,11 @@ module Tinder
     # Find a campfire room by name
     def find_room_by_name(name)
       rooms.detect { |room| room.name == name }
+    end
+    
+    # Find a campfire room by ID
+    def find_room_by_id(id)
+      rooms.detect { |room| room.id == id }
     end
 
     # Find a campfire room by its guest hash
